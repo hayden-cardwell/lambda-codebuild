@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+    commands:
+      - pip install -r requirements.txt
+
+  pre_build:
+    commands:
+      - pytest --junitxml=reports/test-results.xml
+
+  build:
+    commands:
+      - zip artifact.zip handler.py
+
+reports:
+  pytest-report:
+    files:
+      - reports/test-results.xml
+    base-directory: reports
+    file-format: JUNITXML
+
+artifacts:
+  files:
+    - artifact.zip
