@@ -9,6 +9,7 @@ phases:
 
   pre_build:
     commands:
+      - mkdir -p reports
       - pytest --junitxml=reports/test-results.xml
 
   build:
