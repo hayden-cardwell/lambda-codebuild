@@ -17,7 +17,7 @@ phases:
       - zip artifact.zip handler.py
 
 reports:
-  CodeBuildLambda-pytest-report:
+  arn:aws:codebuild:us-east-1:727646513964:report-group/pytest-report:
     files:
       - reports/*.xml
     base-directory: reports
